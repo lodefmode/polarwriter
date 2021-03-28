@@ -1,0 +1,34 @@
+Basic commands from TouchDesigner to Arduino:
+
+g ###,### -> goto absolute rotation x,y (degrees)
+v ### -> set servo position
+
+i -> initialize: energize servo, set zero position
+r -> release all
+
+\0 -> execute
+\n -> execute
+spaces optional
+all values can be +/- including decimals. 
+
+
+Example run:
+
+i			#initialize, set zero
+
+v 0			#servo full ccw
+
+g 25, -30	#goto x degree 25, y degres -30
+
+v 180		#servo full cw
+
+g 0, 50.5	#goto x degree 0, y degres 50.5
+
+v 0			#servo full ccw
+
+r			#x,y,servo release
+
+
+
+
+
