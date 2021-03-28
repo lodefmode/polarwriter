@@ -1,10 +1,9 @@
 /*
-  This is a test sketch for the Adafruit assembled Motor Shield for Arduino v2
-  It won't work with v1.x motor shields! Only for the v2's with built in PWM
-  control
-
   For use with the Adafruit Motor Shield v2
   ---->  http://www.adafruit.com/products/1438
+
+  Execute commands from serial port, to drive two steppers and a servo
+
 */
 
 
@@ -37,6 +36,7 @@ Servo myServo;
 
 
 
+// Simple floating point parser
 
 class FValue
 {
@@ -118,6 +118,9 @@ setup()
   //AFMS.begin(1000);  // OR with a different frequency, say 1KHz
 }
 
+// breshenham step through the pair of rotational values,
+// allow for values to wrap
+
 void
 gotoPosition()
 {
@@ -161,8 +164,6 @@ gotoPosition()
 
   int err = (dx > dy ? dx : -dy) / 2;
   int e2;
-
-  //	Serial.println("");
 
   while (1)
   {
